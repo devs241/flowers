@@ -5,62 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will You Be My Valentine?</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .message {
+            font-size: 24px;
+            color: red;
+            font-weight: bold;
+            margin-bottom: 490px;
+        }
+        .popup-image {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .popup-image img {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
 </head>
 <body>
 
     <video class="video-background" autoplay muted loop>
         <source src="bg.mp4" type="video/mp4">
         Your browser does not support the video tag.
-    </video>
+    </video>        
 
-    <div class="container">
-        <h1>Will You Be My Valentine?</h1>
-        
-        <video class="video-background1" autoplay muted loop>
-            <source src="popup.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <button id="press-button">PRESS</button>
 
-        <p>I've been thinking about you, and I'd love to know...</p>
-        
-        <button id="yes-button">Yes!</button>
-        <button id="no-button">No</button>
-
-        <div id="yes-message" class="hidden">Yeyy!! I love you so much myprend 💐♥️💐</div>
-        <div id="no-message" class="hidden">Aww, that's okay. Maybe next time. 😊</div>
-
-        <div class="warning hidden" id="warning-message">Why did you click No!! 😢</div>
-
-        <div class="popup-image hidden" id="popup-image">
-            <img src="flowers.webp" width="300" height="300" alt="Surprise Image">
+    <div id="valentine-container" class="hidden container">
+        <div id="valentine-message" class="message">HAPPY VALENTINES DAY! flowers for you 💐♥️💐</div>
+        <div class="popup-image">
+            <img id="flower-img" src="flowers.jpg" alt="Surprise Image">
         </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const yesButton = document.getElementById('yes-button');
-            const noButton = document.getElementById('no-button');
-            const yesMessage = document.getElementById('yes-message');
-            const noMessage = document.getElementById('no-message');
-            const warningMessage = document.getElementById('warning-message');
-            const popupImage = document.getElementById('popup-image');
+            const pressButton = document.getElementById('press-button');
+            const valentineContainer = document.getElementById('valentine-container');
 
-            yesButton.addEventListener('click', () => {
-                yesMessage.style.display = 'block';
-                noMessage.style.display = 'none';
-                warningMessage.style.display = 'none';
-                popupImage.style.display = 'block';
-            });
-
-            noButton.addEventListener('click', () => {
-                noMessage.style.display = 'none';
-                yesMessage.style.display = 'none';
-                popupImage.style.display = 'none';
-                warningMessage.style.display = 'block';
-
-                setTimeout(() => {
-                    warningMessage.style.display = 'none';
-                }, 2000);
+            pressButton.addEventListener('click', () => {
+                valentineContainer.classList.remove('hidden'); 
             });
         });
     </script>
